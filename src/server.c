@@ -6,56 +6,11 @@
 /*   By: jarunota <jarunota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:05:23 by jarunota          #+#    #+#             */
-/*   Updated: 2024/05/14 19:59:28 by jarunota         ###   ########.fr       */
+/*   Updated: 2024/05/14 20:18:58 by jarunota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minitalk.h"
-
-// Signal handler function for handling SIGUSR1 and SIGUSR2 signals
-// If the signal is SIGUSR1, set the corresponding bit in current_char
-// If the bit index reaches 8, print the current character and reset 
-// the bit index and current_char
-
-/**
- * 		Checks if the signal is SIGUSR1. If it is, it will
- * assign 1 to the LSB. Else, it will assign 0 (actually it simply
- * won't modify it).
- *
- * Example:
- * 00101100   current_char
- * 00000001   result of (sigsent == SIGUSR1)
- * --------
- * 00101101   result stored in message after the bitwise OR operation
- *
- * It will then increment the bit index.
- * If it is 8, it means that
- * the char has been fully transmitted. It will then print it and
- * reset the bit index and the current char.
- * Else, it will shift the current char to the left by 1
- */
-
-/*
-void	handle_signal(int signal, siginfo_t *info, void *ucontext)
-{
-	static unsigned char	current_char;
-	static int				bit_index;
-	int						client_pid;
-
-	(void)ucontext;
-	client_pid = info->si_pid;
-	if (signal == SIGUSR1)
-		current_char |= (1 << (7 - bit_index));
-	bit_index++;
-	kill(client_pid, SIGUSR1);
-	if (bit_index == 8)
-	{
-		write(1, &current_char, 1);
-		bit_index = 0;
-		current_char = 0;
-	}
-}
-*/
 
 void	handle_sigusr(int signum, siginfo_t *info, void *ucontent)
 {
