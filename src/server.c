@@ -6,7 +6,7 @@
 /*   By: jarunota <jarunota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:05:23 by jarunota          #+#    #+#             */
-/*   Updated: 2024/05/14 18:02:27 by jarunota         ###   ########.fr       */
+/*   Updated: 2024/05/14 19:59:28 by jarunota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,6 @@ void	handle_sigusr(int signum, siginfo_t *info, void *ucontent)
 	if (kill(info->si_pid, SIGUSR1) == -1)
 		handle_errors("Failed to send SIGUSR1");
 }
-
-// 1 -> 00000001
-// a -> 01100001
 
 void	config_signals(void)
 {
