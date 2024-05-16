@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarunota <jarunota@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jarunota <jarunota@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 22:45:38 by jarunota          #+#    #+#             */
-/*   Updated: 2024/05/14 18:10:51 by jarunota         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:24:52 by jarunota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	args_check(int argc, char **argv)
 		if (!ft_isdigit(argv[1][i++]))
 			handle_errors("Invalid PID");
 	if (*argv[2] == 0)
-		handle_errors("Invalid message (empty)");
+		handle_errors("NO message");
 }
 
 void	sig_handler(int signum)
