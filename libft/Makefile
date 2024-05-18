@@ -6,7 +6,7 @@
 #    By: jarunota <jarunota@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/31 13:34:04 by jarunota          #+#    #+#              #
-#    Updated: 2024/05/14 18:18:27 by jarunota         ###   ########.fr        #
+#    Updated: 2024/05/18 14:46:59 by jarunota         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,8 +102,8 @@ ${NAME}	: ${OBJS}
 #	@ echo ""
 
 ${OBJS_DIR}/%.o	:%.c
-	@mkdir -p ${OBJS_DIR}/${dir $<}
-# 	@ echo "${YELLOW}Compiling: $<${DEFAULT_COLOR}"
+	@ mkdir -p ${OBJS_DIR}/${dir $<}
+#	@ echo "${YELLOW}Compiling: $<${DEFAULT_COLOR}"
 	@ echo -n "${YELLOW}.${DEFAULT_COLOR}"
 	@ ${CC} ${CFLAGS} ${IFLAGS} -c $< -o $@
 #	@ echo "${GREEN}Created object files successfully${DEFAULT_COLOR}"

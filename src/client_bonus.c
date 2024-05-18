@@ -6,7 +6,7 @@
 /*   By: jarunota <jarunota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 22:45:38 by jarunota          #+#    #+#             */
-/*   Updated: 2024/05/18 15:31:41 by jarunota         ###   ########.fr       */
+/*   Updated: 2024/05/18 15:02:35 by jarunota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	args_check(int argc, char **argv)
 void	sig_handler(int signum)
 {
 	if (signum == SIGUSR2)
-		write(STDOUT_FILENO, "", 1);
+		write(1, "Character has been sucessfully receieved!\n", 42);
 }
 
 int	send_msg(pid_t sv_pid, char *msg)
@@ -81,9 +81,13 @@ int	main(int argc, char **argv)
 	args_check(argc, argv);
 	msg = argv[2];
 	sv_pid = ft_atoi(argv[1]);
+	ft_printf("_________________________________________\n\n");
+	ft_printf("          client PID : %d\n", getpid());
+	ft_printf("_________________________________________\n\n");
 	config_signals();
 	while (send_msg(sv_pid, msg))
 		pause();
 	send_msg(sv_pid, "\n");
+	write(STDOUT_FILENO, "\n", 1);
 	return (EXIT_SUCCESS);
 }
